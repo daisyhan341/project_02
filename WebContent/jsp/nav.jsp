@@ -1,0 +1,2 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<a href="https://finaltk2.gamepub.co.kr/" target="_blank"><img src="http://218.156.8.245:8080/project_02/jsp/images/today_recommend.png"></a>

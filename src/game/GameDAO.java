@@ -24,7 +24,6 @@ public class GameDAO {
 			PreparedStatement pstmt = conn.prepareStatement(SQL);
 			// SQL문을 실행
 			ResultSet rs = pstmt.executeQuery();
-			
 			while (rs.next()) {
 				// 데이터베이스에서 가져온 각 속성값을 GameDTO 객체에 저장
 				GameDTO gameDTO = new GameDTO();
@@ -50,6 +49,6 @@ public class GameDAO {
 				e.printStackTrace();
 			}
 		}
-		return v;  // 에러 발생 시 -1 리턴
+		return v;
 	}
 }

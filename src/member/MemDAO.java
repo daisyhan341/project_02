@@ -15,42 +15,42 @@ public class MemDAO {
 	
 	// 회원 가입
 	public int join(  // 사용할 속성을 변수로 선언
-		String mem_id,
-		String mem_pw,
-		String mem_nick,
-		String mem_email,
-		String mem_phone,
-		String mem_birth,
-		String mem_group) {
+	String mem_id,
+	String mem_pw,
+	String mem_nick,
+	String mem_email,
+	String mem_phone,
+	String mem_birth,
+	String mem_group) {
+		try {
+			// 데이터베이스에 적용할 SQL문 선언
+			String SQL = "INSERT INTO project_02.member(mem_id,mem_pw,mem_nick,mem_email,mem_phone,mem_birth,mem_group,join_date) VALUES(?,?,?,?,?,?,?,sysdate())";
+			// SQL문을 실행시키고 실제 데이터베이스에 매개 변수로 들어온 값들을 저장
+			PreparedStatement pstmt = conn.prepareStatement(SQL);
+			
+			// 각 변수에 저장된 값을 SQL문의 ?에 순서대로 삽입
+			pstmt.setString(1, mem_id);
+			pstmt.setString(2, mem_pw);
+			pstmt.setString(3, mem_nick);
+			pstmt.setString(4, mem_email);
+			pstmt.setString(5, mem_phone);
+			pstmt.setString(6, mem_birth);
+			pstmt.setString(7, mem_group);
+			
+			// 명령어를 수행한 결과(insert 된 데이터 갯수, 1명=1) 반환
+			return pstmt.executeUpdate();
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
 			try {
-				// 데이터베이스에 적용할 SQL문 선언
-				String SQL = "INSERT INTO project_02.member(mem_id,mem_pw,mem_nick,mem_email,mem_phone,mem_birth,mem_group,join_date) VALUES(?,?,?,?,?,?,?,sysdate())";
-				// SQL문을 실행시키고 실제 데이터베이스에 매개 변수로 들어온 값들을 저장
-				PreparedStatement pstmt = conn.prepareStatement(SQL);
-				
-				// 각 변수에 저장된 값을 SQL문의 ?에 순서대로 삽입
-				pstmt.setString(1, mem_id);
-				pstmt.setString(2, mem_pw);
-				pstmt.setString(3, mem_nick);
-				pstmt.setString(4, mem_email);
-				pstmt.setString(5, mem_phone);
-				pstmt.setString(6, mem_birth);
-				pstmt.setString(7, mem_group);
-				
-				// 명령어를 수행한 결과(insert 된 데이터 갯수, 1명=1) 반환
-				return pstmt.executeUpdate();
+				conn.close();  // 데이터베이스와 연결 종료(커밋 후에는 반드시 연결 종료를 선언 할것)
+				conn = null;
 			} catch (Exception e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					conn.close();  // 데이터베이스와 연결 종료(커밋 후에는 반드시 연결 종료를 선언 할것)
-					conn = null;
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
 			}
-			return -1;  // 에러 발생 시 -1 리턴
 		}
+		return -1;  // 에러 발생 시 -1 리턴
+	}
 	
 	// 로그인
 	public int login(String mem_id, String mem_pw) {  // 비교에 필요한 속성(mem_id, mem_pw)을 변수로 선언

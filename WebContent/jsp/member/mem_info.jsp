@@ -23,6 +23,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<header><jsp:include page="../header.jsp" flush="false"/></header>
 <%
 	MemDAO memDAO = new MemDAO();
 	MemDTO memDTO = memDAO.info(mem_id);
@@ -41,5 +42,8 @@
 <%
 	}
 %>
+
+<footer><jsp:include page="../footer.jsp" flush="false"/></footer>
+
 </body>
 </html>

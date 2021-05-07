@@ -1,19 +1,41 @@
 @charset "UTF-8";
+@font-face {
+	font-family: 'NanumBarunGothic';
+	font-style: normal;
+	font-weight: 400;
+	src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
+	src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix') format('embedded-opentype'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff') format('woff'), url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf') format('truetype');
+   }
 
 * {
 	margin: 0;
 	padding: 0;
+	font-family: 'NanumBarunGothic', sans-serif;
+	color: #4d4d4d;
 }
 
 body {	
+	font-size: 14px;
+	line-height: 20px;
+}
+
+a {
+	text-decoration: none;
+	color: #2f2f2f;
+}
+
+a:hover {
+	font-weight: 600;
 }
 
 header {
-	height: 90px;
 	margin: 0 auto;
-	padding: 10px;
+	padding: 0px;
 	text-align: right;
-	
+	height: 60px;
+	line-height: 60px;
+	background-color: #f6f6f6;
+	border-bottom: 1px solid #dadada;
 }
 
 section {
@@ -24,5 +46,133 @@ section {
 
 footer {
 	margin: 0 auto;
+	width: 100%;
+	float: left;
+	padding: 0px;
+	text-align: center;
+	font-size: 13px;
+	height: 80px;
+	line-height: 20px;
+	background-color: #bdbdbd;
+	color: #FFF;
+}
+
+/* 상단 메뉴바 */
+.menu_bar {
+	margin: 0;
+}
+
+.menu_bar a {
+	padding-right: 30px;
+	font-size: 16px;
+}
+
+/* 타이틀 */
+.title {
+	font-size: 16px;
+	text-align: left;
+	margin: 40px 210px;
+}
+
+/* 회원 가입 */
+.join_table {
+	margin: 50px auto;
+	text-align: center;
+}
+
+.join_table td {
 	padding: 10px;
+}
+
+.join_table input {
+	width: 200px;
+	border: 0px;
+	border-bottom: 1px solid #4d4d4d;
+	height: 30px;
+	padding: 5px;
+}
+
+.btn {
+	padding: 12px 20px;
+	border: none;
+}
+
+/* 게임 순위 테이블 */
+.rank_table {
+	width: 700px;
+	margin: 16px 0 0 210px;
+}
+
+.game_title {
+	padding: 10px 0;
+	border-bottom: 1px dotted #bdbdbd;
+	font-weight: bold;
+}
+
+.game_title a {
+	font-weight: bold;
+}
+
+.game_title a:hover {
+	color: #008fc7
+}
+
+.game_note {
+	padding: 10px;
+}
+
+/* 게임 상세 정보 */
+
+.title_reply {
+	font-size: 16px;
+	text-align: left;
+	margin: 20px 0;
+}
+
+/* 댓글 */
+.reply_box {
+	margin: 10px 0;
+	padding: 20px;
+	width: 100%;
+	background-color: #f0f0f0;
+	text-align: center;
+}
+
+.reply_con {
+	padding: 30px;
+	border: 1px solid #eeeeee;
+	background-color: #FFF;
+}
+
+.reply_write {
+	width: 96%;
+	height: 100px;
+	padding: 10px;
+	border: none;
+}
+
+.reply_score {
+	padding: 10px;
+	border: none;
+	border-bottom: 1px solid #dadada;
+	width: 26px;
+}
+
+.reply_btn {
+	margin: 10px;
+	width: 96%;
+	height: 50px;
+	background-color: #008fc7;
+	color: #FFF;
+}
+
+/* nav */
+nav {
+	float: left;
+	padding: 30px;
+	position: fixed;
+}
+
+section {
+	float: left;
 }
